@@ -100,4 +100,3 @@ Java | Spring Boot | REST APIs | Backend Development
 
 ---
 
-### If you find this repository useful, feel free to explore the projects and provide feedback.
