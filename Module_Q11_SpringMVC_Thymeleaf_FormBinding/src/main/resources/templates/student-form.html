@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form Validation</title>
+
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form th:action="@{/processForm}" th:object="${student}" method="post">
+
+    <p>
+        First Name:
+        <input type="text" th:field="*{firstName}">
+        <span class="error" th:errors="*{firstName}"></span>
+    </p>
+
+    <p>
+        Last Name:
+        <input type="text" th:field="*{lastName}">
+        <span class="error" th:errors="*{lastName}"></span>
+    </p>
+
+    <p>
+        Age:
+        <input type="number" th:field="*{age}">
+        <span class="error" th:errors="*{age}"></span>
+    </p>
+
+    <p>
+        Postal Code:
+        <input type="text" th:field="*{postalCode}">
+        <span class="error" th:errors="*{postalCode}"></span>
+    </p>
+
+    <p>
+        Course Code:
+        <input type="text" th:field="*{courseCode}">
+        <span class="error" th:errors="*{courseCode}"></span>
+    </p>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

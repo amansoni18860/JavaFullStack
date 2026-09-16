@@ -1,0 +1,8 @@
+File Analysis Report
+----------------------------
+Total Lines: 0
+Total Words: 0
+Total Characters: 0 
+Longest Word: (0)
+Analyzed By: John Doe, Roll No: 12345
+

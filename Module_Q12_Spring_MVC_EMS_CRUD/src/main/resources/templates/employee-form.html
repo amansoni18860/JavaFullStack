@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0">
+
+                <!-- Header -->
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">
+                        <i class="fa-solid fa-user-tie"></i>
+                        Employee Form
+                    </h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+
+                    <form th:action="@{/save}"
+                          th:object="${employee}"
+                          method="POST">
+
+                        <!-- Hidden ID -->
+                        <input type="hidden" th:field="*{id}"/>
+
+                        <!-- First Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                First Name
+                            </label>
+                            <input type="text"
+                                   th:field="*{firstName}"
+                                   placeholder="Enter first name"
+                                   class="form-control">
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                Last Name
+                            </label>
+                            <input type="text"
+                                   th:field="*{lastName}"
+                                   placeholder="Enter last name"
+                                   class="form-control">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">
+                                Email
+                            </label>
+                            <input type="email"
+                                   th:field="*{email}"
+                                   placeholder="Enter email address"
+                                   class="form-control">
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+
+                            <a th:href="@{/employees/list}"
+                               class="btn btn-secondary">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Back
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-success">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Employee
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+</head>
+
+<body>
+
+<h2>Student Details</h2>
+
+<p>
+    First Name:
+    <span th:text="${student.firstName}"></span>
+</p>
+
+<p>
+    Last Name:
+    <span th:text="${student.lastName}"></span>
+</p>
+
+<p>
+    Age:
+    <span th:text="${student.age}"></span>
+</p>
+
+<p>
+    Postal Code:
+    <span th:text="${student.postalCode}"></span>
+</p>
+
+<p>
+    Course Code:
+    <span th:text="${student.courseCode}"></span>
+</p>
+
+</body>
+</html>

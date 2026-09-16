@@ -1,0 +1,20 @@
+#1 Problem Statement
+Create a Java program to model a Library Management System using aggregation.
+The relationships are:
+•	A Library has many Book objects.
+•	A Book has one Author (but the author exists independently of the book).
+•	If the Library is deleted, the Books still exist → aggregation (not composition).
+Requirements
+1.	Class: Author
+o	Attributes: authorName, email, gender
+o	Method: displayAuthorInfo()
+2.	Class: Book
+o	Attributes: title, isbn, price
+o	Relationship: aggregates an Author object
+o	Method: displayBookInfo()
+3.	Class: Library
+o	Contains a collection (e.g., ArrayList<Book>)
+o	Methods: addBook(Book b), removeBook(String isbn), displayAllBooks()
+4.	Demonstrate aggregation
+o	Library aggregates Books.
+o	Books aggregate Author.

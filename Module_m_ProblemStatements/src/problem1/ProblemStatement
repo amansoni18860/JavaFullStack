@@ -1,0 +1,24 @@
+Create a Java program to manage employees and their departments.
+Define an Employee class with attributes:
+•	id
+•	name
+•	salary
+•	deptName
+•	organization
+Create 10 employees belonging to at least 3 departments.
+Implement operations to:
+1.	Calculate the average salary of employees in each department.
+2.	Sort employees by name.
+3.	Find the top 3 highest-paid employees.
+4.	Display employees earning ≥ 50,000 in each department.
+Instructions
+1.	Create a class named Employee with private fields and public getters/setters.
+2.	Create a class named EmployeeManagement with a main() method.
+3.	Use a List<Employee> (e.g., ArrayList<Employee>) to store employees.
+4.	Use Java Streams or Collections utilities to perform filtering, sorting, and grouping.
+5.	Print results in a clear, tabular format.
+Requirements
+•	Use Core Java only (no frameworks).
+•	Use Java 8 or higher for Stream API.
+•	Code should be modular and readable.
+•	Show clear console output for all 4 tasks.

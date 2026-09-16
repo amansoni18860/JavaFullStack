@@ -1,0 +1,31 @@
+Problem Statement
+Write a Java program that:
+1.	Takes a plain text message (can be hardcoded or input from user).
+2.	Encrypts it using the Caesar Cipher with a displacement (shift) value = 3.
+3.	Writes the encrypted message into a file named enc_message.txt.
+4.	Reads the encrypted message from enc_message.txt, decodes it back to the original message.
+5.	Writes the decoded message into another file named dec_message.txt.
+Requirements
+•	Use FileWriter and FileReader (or BufferedReader/BufferedWriter) for file operations.
+•	Only shift alphabetic characters (A–Z, a–z) — leave spaces, digits, and punctuation unchanged.
+•	Caesar Cipher logic:
+o	Encryption: EncryptedChar = (OriginalChar + shift) % 26
+o	Decryption: DecryptedChar = (EncryptedChar - shift + 26) % 26
+•	Handle both uppercase and lowercase letters correctly.
+
+
+Hints
+1.	Use ASCII values:
+o	'A' = 65, 'Z' = 90
+o	'a' = 97, 'z' = 122
+2.	Use modular arithmetic to wrap around letters.
+3.	Always close file streams using close() or use try-with-resources.
+4.	To read back from file, use FileReader or BufferedReader.
+Expected Output
+Input message:
+Hello World
+enc_message.txt (after encryption):
+Khoor Zruog
+dec_message.txt (after decryption):
+Hello World
+

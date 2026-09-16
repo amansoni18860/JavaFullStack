@@ -1,0 +1,29 @@
+package FileHandling;
+
+import java.io.*;
+
+public class RWDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		FileReader fr=new FileReader("src/FileHandling/RWDemo.java");
+		FileWriter fw=new FileWriter("rw.txt");
+		
+		int x,count=0;
+		
+		while((x=fr.read())!=-1) {
+			fw.write(x);
+			System.out.print((char)x);
+			count++;
+		}
+		
+		fw.write("\nNo. of Chars in the file : "+count);
+		System.out.println("\nFile Read and successfully written in rw.txt");
+		
+		fr.close();
+		fw.close();
+	}
+
+}
+
+No. of Chars in the file : 537

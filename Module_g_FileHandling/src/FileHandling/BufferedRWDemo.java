@@ -1,0 +1,32 @@
+package FileHandling;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class BufferedRWDemo {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br=new BufferedReader(new FileReader("src/FileHandling/BufferedRWDemo.java"));
+		BufferedWriter bw=new BufferedWriter(new FileWriter("rw1.txt"));
+		
+		int x,count=0;
+		String line;
+		
+		while((line=br.readLine())!=null) {
+			bw.write(line);
+			bw.write("\n");
+			System.out.println(line);
+			count++;
+		}
+		
+		bw.write("\nNo. of lines in the file : "+count);
+		System.out.println("\nFile Read and successfully written in rw1.txt");
+		
+		br.close();
+		bw.close();
+	}
+}

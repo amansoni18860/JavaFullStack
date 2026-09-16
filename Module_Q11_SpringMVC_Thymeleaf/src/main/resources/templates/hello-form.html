@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Form Demo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"/>
+
+</head>
+<body>
+
+<form th:action="@{/processForm}" method="post">
+<br/>
+<input type="text" name="studentName" placeholder="What is your Name?"><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

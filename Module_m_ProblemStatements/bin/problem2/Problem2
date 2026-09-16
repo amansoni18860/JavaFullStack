@@ -1,0 +1,33 @@
+#2 Problem Statement
+Create a multithreaded Java program that performs three distinct tasks using separate threads.
+Each thread will generate random numbers and perform calculations based on them.
+Threads & Their Tasks
+A. Prime Number Generator Thread
+1.	Generate a random number between 101 and 999
+2.	Find all prime numbers up to that number
+3.	Calculate the sum of all prime numbers found
+4.	Print the list and sum
+________________________________________
+B. Square Calculator Thread
+1.	Generate a random number between 11 and 99
+2.	Calculate and print the squares of all integers from 1 to that number
+________________________________________
+C. Multiples of 5 Finder Thread
+1.	Generate a list of 100 random numbers between 1 and 500
+2.	Find and print all numbers that are multiples of 5
+________________________________________
+Instructions
+1.	Create three classes, each extending Thread or implementing Runnable.
+2.	Override the run() method in each class to define the logic.
+3.	In the main() method:
+o	Create objects for all three threads.
+o	Start all threads using the start() method.
+4.	Use Random class or Math.random() to generate random numbers.
+5.	Ensure each thread prints its output with proper identification (thread name).
+________________________________________
+Requirements
+•	Use Core Java (no frameworks).
+•	Use Thread or Runnable properly.
+•	Keep each task’s logic inside its own thread class.
+•	Make the output readable and clearly separated per thread.
+•	Use Thread.sleep() (optional) for simulating processing delay if needed.

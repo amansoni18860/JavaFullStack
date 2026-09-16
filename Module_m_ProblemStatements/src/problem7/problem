@@ -1,0 +1,18 @@
+Problem Statement
+Create:
+1.	An abstract class Appliance with:
+o	Fields: brand (String), powerConsumption (double)
+o	Abstract method: void turnOn()
+2.	Three subclasses:
+o	WashingMachine
+o	Refrigerator
+o	Microwave
+Each subclass provides its own implementation of turnOn().
+3.	In the main() method:
+o	Create one object of each subclass.
+o	Call their turnOn() methods to print the brand name and power consumption.
+Requirements
+•	Use abstract keyword for the base class.
+•	Override the abstract method in all subclasses.
+•	Display meaningful output for each appliance.
+•	Demonstrate runtime polymorphism by calling methods via superclass references (optional).

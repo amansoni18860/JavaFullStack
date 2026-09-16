@@ -1,0 +1,21 @@
+package lect_a_FunctionalInterface_And_LambdaFun;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ArrayList_With_Lambda {
+	public static void main(String[] args) {
+
+		ArrayList<Integer>l=new ArrayList<>();
+		
+		l.add(10);
+		l.add(8);
+		l.add(15);
+		l.add(5);
+		l.add(20);
+		
+		System.out.println("Before Sorting : "+l);
+		Collections.sort(l,(I1,I2)->(I1>I2)?-1:(I1<I2)?1:0);
+		System.out.println("After Sorting : "+l);
+	}
+}

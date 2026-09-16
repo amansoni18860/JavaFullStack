@@ -1,0 +1,475 @@
+JAVA FUNCTIONAL INTERFACES - COMPLETE LEARNING NOTES
+=================================================
+
+1. WHY FUNCTIONAL INTERFACES?
+--------------------------------------------------
+Before Java 8, we often created separate classes or anonymous inner classes to provide behavior.
+This made code lengthy and harder to read.
+
+Java 8 introduced:
+- Functional Interfaces
+- Lambda Expressions
+- Stream API
+
+A Functional Interface contains exactly ONE abstract method.
+
+Examples:
+- Predicate
+- Function
+- Consumer
+- Supplier
+
+These interfaces are available in:
+java.util.function package
+
+=================================================
+
+2. PREDICATE<T>
+--------------------------------------------------
+Purpose:
+Used for CONDITION CHECKING.
+
+Question it answers:
+"Is this true or false?"
+
+Method:
+boolean test(T t)
+
+Example:
+Predicate<Integer> p = i -> i > 10;
+
+Input:
+15
+Output:
+true
+
+Use Cases:
+- Validation
+- Filtering data
+- Eligibility checking
+- Searching
+
+Why learn Predicate first?
+Because checking conditions is one of the most common programming tasks.
+
+=================================================
+
+3. FUNCTION<T,R>
+-------------------------------------------------
+Purpose:
+Transform one value into another.
+
+Question it answers:
+"Given X, calculate Y."
+
+Method:
+R apply(T t)
+
+Example:
+Function<Integer,Integer> f = i -> i*i;
+
+Input:
+5
+Output:
+25
+
+Use Cases:
+- Data transformation
+- Calculations
+- Mapping values
+
+Difference from Predicate:
+Predicate -> returns boolean
+Function -> returns any result type
+
+=================================================
+
+4. CONSUMER<T>
+--------------------------------------------------
+Purpose:
+Consume input and perform an action.
+
+Method:
+void accept(T t)
+
+Example:
+Consumer<String> c = s -> System.out.println(s);
+
+Use Cases:
+- Printing
+- Logging
+- Sending notifications
+- Updating objects
+
+Difference from Function:
+Function returns value.
+Consumer returns nothing.
+
+=================================================
+
+5. SUPPLIER<T>
+-------------------------------------------------
+Purpose:
+Supply or generate data.
+
+Method:
+T get()
+
+Input:
+No input required.
+
+Example:
+Supplier<String> s = () -> "Hello";
+
+Use Cases:
+- OTP generation
+- Random values
+- Default values
+- Lazy object creation
+
+Difference from Consumer:
+Consumer takes input.
+Supplier gives output.
+
+=================================================
+
+6. COMPLETE VIEW
+------------------------------------------------
+Predicate  -> Test data
+Function   -> Transform data
+Consumer   -> Use data
+Supplier   -> Generate data
+
+Flow Example:
+Supplier -> Predicate -> Function -> Consumer
+Generate -> Validate -> Process -> Display
+
+=================================================
+
+7. WHY BI-FUNCTIONAL INTERFACES?
+-------------------------------------------------
+The basic interfaces accept only one parameter.
+
+Sometimes we need two inputs.
+
+Examples:
+- Compare two values
+- Add two numbers
+- Combine first name and last name
+
+For such cases Java provides Bi Interfaces.
+
+=================================================
+
+8. BiPredicate<T,U>
+-------------------------------------------------
+Purpose:
+Check a condition using two inputs.
+
+Method:
+boolean test(T t,U u)
+
+Example:
+BiPredicate<Integer,Integer> p=(a,b)->a>b;
+
+Input:
+(20,10)
+
+Output:
+true
+
+Use Cases:
+- Comparing values
+- Validation involving multiple fields
+
+=================================================
+
+9. BiFunction<T,U,R>
+-------------------------------------------------
+Purpose:
+Accept two inputs and return one result.
+
+Method:
+R apply(T t,U u)
+
+Example:
+BiFunction<Integer,Integer,Integer> f=(a,b)->a+b;
+
+Output:
+30
+
+Use Cases:
+- Salary calculation
+- String concatenation
+- Arithmetic operations
+
+=================================================
+
+10. BiConsumer<T,U>
+-------------------------------------------------
+Purpose:
+Accept two inputs and perform an action.
+
+Method:
+void accept(T t,U u)
+
+Example:
+BiConsumer<String,Integer> c=(name,age)->
+System.out.println(name+" "+age);
+
+Use Cases:
+- Updating objects
+- Printing multiple values
+
+=================================================
+
+11. WHY PRIMITIVE FUNCTIONAL INTERFACES?
+-------------------------------------------------
+Wrapper classes cause:
+- Boxing
+- Unboxing
+- Extra memory usage
+
+Example:
+int -> Integer (Boxing)
+Integer -> int (Unboxing)
+
+To improve performance Java provides primitive functional interfaces.
+
+=================================================
+
+12. PRIMITIVE PREDICATES
+-------------------------------------------------
+IntPredicate
+LongPredicate
+DoublePredicate
+
+Method:
+boolean test(value)
+
+Example:
+IntPredicate p=i->i%2==0;
+
+=================================================
+
+13. PRIMITIVE CONSUMERS
+-------------------------------------------------
+IntConsumer
+LongConsumer
+DoubleConsumer
+
+Method:
+void accept(value)
+
+Example:
+IntConsumer c=i->System.out.println(i*i);
+
+Special Variants:
+ObjIntConsumer<T>
+ObjLongConsumer<T>
+ObjDoubleConsumer<T>
+
+Purpose:
+Object + Primitive value
+
+=================================================
+
+14. PRIMITIVE SUPPLIERS
+-----------------------
+BooleanSupplier
+IntSupplier
+LongSupplier
+DoubleSupplier
+
+Example:
+IntSupplier s=()->(int)(Math.random()*10);
+
+Use Case:
+OTP Generation
+
+=================================================
+
+15. PRIMITIVE FUNCTIONS
+-----------------------
+A) Primitive Input -> Object Output
+
+IntFunction<R>
+LongFunction<R>
+DoubleFunction<R>
+
+Example:
+IntFunction<String> f=i->"Value="+i;
+
+----------------------------------------
+B) Object Input -> Primitive Output
+----------------------------------------
+
+ToIntFunction<T>
+ToLongFunction<T>
+ToDoubleFunction<T>
+
+Example:
+ToIntFunction<String> f=s->s.length();
+
+----------------------------------------
+C) Primitive -> Primitive
+----------------------------------------
+
+IntToDoubleFunction
+IntToLongFunction
+LongToIntFunction
+DoubleToIntFunction
+etc.
+
+=================================================
+
+16. PRIMITIVE BIFUNCTIONS
+-------------------------
+ToIntBiFunction<T,U>
+ToLongBiFunction<T,U>
+ToDoubleBiFunction<T,U>
+
+Example:
+ToIntBiFunction<String,String>
+returns integer from two strings.
+
+=================================================
+
+17. UNARYOPERATOR<T>
+--------------------
+What problem does it solve?
+
+Function<T,R> allows different input and output types.
+
+Sometimes:
+Input type = Output type
+
+Examples:
+5 -> 25
+hello -> HELLO
+
+UnaryOperator<T> is a specialized Function.
+
+Definition:
+Input type and output type must be SAME.
+
+Method:
+T apply(T t)
+
+Example:
+UnaryOperator<Integer> u=i->i*i;
+
+Output:
+25
+
+Primitive Variants:
+IntUnaryOperator
+LongUnaryOperator
+DoubleUnaryOperator
+
+Method:
+applyAsInt()
+applyAsLong()
+applyAsDouble()
+
+=================================================
+
+18. BINARYOPERATOR<T>
+---------------------
+What problem does it solve?
+
+BiFunction accepts two inputs.
+
+Sometimes:
+Input1 type = Input2 type = Output type
+
+Example:
+10 + 20 = 30
+
+String + String = String
+
+BinaryOperator is a specialized BiFunction.
+
+Method:
+T apply(T t1,T t2)
+
+Example:
+BinaryOperator<String>
+(s1,s2)->s1+s2
+
+Output:
+rajsinghaniya
+
+Primitive Variants:
+IntBinaryOperator
+LongBinaryOperator
+DoubleBinaryOperator
+
+Method:
+applyAsInt()
+applyAsLong()
+applyAsDouble()
+
+=================================================
+
+19. LEARNING FLOW SUMMARY
+-------------------------
+1. Predicate
+   -> Checking conditions
+
+2. Function
+   -> Transforming data
+
+3. Consumer
+   -> Using data
+
+4. Supplier
+   -> Generating data
+
+5. BiPredicate
+   -> Condition with 2 inputs
+
+6. BiFunction
+   -> Transform 2 inputs
+
+7. BiConsumer
+   -> Consume 2 inputs
+
+8. Primitive Interfaces
+   -> Better performance
+
+9. UnaryOperator
+   -> Function specialization
+      Input type = Output type
+
+10. BinaryOperator
+    -> BiFunction specialization
+       Input1 = Input2 = Output
+
+=================================================
+
+20. INTERVIEW REVISION SHEET
+----------------------------
+Predicate       -> test() -> boolean
+Function        -> apply() -> result
+Consumer        -> accept() -> void
+Supplier        -> get() -> value
+
+BiPredicate     -> test(T,U)
+BiFunction      -> apply(T,U)
+BiConsumer      -> accept(T,U)
+
+IntPredicate    -> boolean
+IntConsumer     -> void
+IntSupplier     -> int
+IntFunction<R>  -> R
+
+ToIntFunction<T> -> int
+
+UnaryOperator<T>
+Input = Output
+
+BinaryOperator<T>
+Input1 = Input2 = Output
+
+Primitive interfaces avoid Boxing and Unboxing and provide better performance.

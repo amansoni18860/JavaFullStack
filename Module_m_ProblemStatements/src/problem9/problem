@@ -1,0 +1,15 @@
+Problem Statement
+Write a Java program that:
+1.	Demonstrates the use of nested try blocks.
+2.	Outer try block should contain two inner try blocks:
+o	First inner try: Divide two integers (handle ArithmeticException).
+o	Second inner try: Access an invalid array index (handle ArrayIndexOutOfBoundsException).
+3.	Each exception should be handled separately with an appropriate message.
+4.	Print a final message at the end to indicate completion of program execution.
+Requirements
+•	Use nested try–catch blocks properly.
+•	Use try–catch–finally structure to demonstrate normal flow.
+•	Handle:
+o	ArithmeticException — division by zero
+o	ArrayIndexOutOfBoundsException — accessing invalid array index
+•	Use meaningful messages for each exception.

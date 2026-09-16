@@ -1,0 +1,34 @@
+#4 Problem Statement
+Develop a Java program that simulates a Basic Customer Account Management System.
+Classes and Their Responsibilities
+1. Address Class
+•	Attributes: street, city, state, pinCode.
+•	Represents a customer’s address.
+2. Account Class
+•	Attributes: accountNumber, balance.
+•	Methods:
+o	deposit(double amount)
+o	withdraw(double amount)
+o	getBalance()
+•	Throws a custom exception InsufficientBalanceException when withdrawal would make balance negative.
+3. Customer Class
+•	Attributes: cid, name, Account account, Address address.
+•	Methods:
+o	Display full customer details (with account and address info).
+4. InsufficientBalanceException
+•	A user-defined checked exception triggered during invalid withdrawal.
+________________________________________
+ Instructions
+1.	Create the above four classes in one file (or multiple files if preferred).
+2.	Define InsufficientBalanceException as a subclass of Exception.
+3.	In the withdraw() method of Account, throw the exception if the withdrawal amount > current balance.
+4.	Catch this exception in the main program (inside try-catch).
+5.	Demonstrate at least one successful deposit/withdrawal and one failed withdrawal due to insufficient funds.
+6.	Display full customer details after operations.
+________________________________________
+Requirements
+•	Use Core Java only (no frameworks).
+•	Demonstrate proper use of OOP principles: composition, encapsulation, constructors.
+•	Use custom exception handling.
+•	Ensure outputs are clearly labeled and formatted.
+________________________________________

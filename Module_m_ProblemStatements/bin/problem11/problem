@@ -1,0 +1,30 @@
+Write a multi-threaded Java program that:
+1.	Thread 1: Prints all prime numbers between 1 and 1000.
+2.	Thread 2: Prints all Fibonacci numbers up to 1000.
+3.	Thread 3: Finds and prints the common numbers present in both sequences (Prime & Fibonacci).
+Each task must be handled by a separate thread, and threads should coordinate properly to share their computed results.
+Requirements
+•	Use Thread class or Runnable interface for thread creation.
+•	Store results (prime and Fibonacci numbers) in shared lists or synchronized collections.
+•	Ensure the third thread starts only after the first two threads finish execution.
+•	Use join() to synchronize the threads.
+Hints
+1.	A prime number is divisible only by 1 and itself.
+2.	Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, ...
+o	Continue until the number exceeds 1000.
+3.	Use ArrayList<Integer> to store numbers.
+4.	Use Thread.join() to make the third thread wait until others finish.
+5.	Use retainAll() or manual checking to find common numbers between two lists.
+
+Expected Output (Sample)
+Prime numbers between 1 and 1000:
+2 3 5 7 11 13 17 19 23 ... 997
+
+Fibonacci numbers up to 1000:
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+
+Common numbers in Prime and Fibonacci series:
+2 3 5 13 89 233  ...
+
+
+ 

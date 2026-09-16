@@ -1,0 +1,33 @@
+Problem Statement
+Create a Country class with the following attributes:
+•	countryCode (String)
+•	countryName (String)
+•	population (long)
+Then, write a Java program to:
+1.	Store multiple Country objects in a TreeMap, where
+o	key = countryCode
+o	value = Country object
+2.	Implement methods to:
+o	Add a country
+o	Remove a country
+o	Search a country by countryCode
+3.	Display all countries in sorted order of countryCode (TreeMap maintains natural sorting of keys).
+Requirements
+•	Use a TreeMap to automatically keep the entries sorted by countryCode.
+•	Implement methods for:
+o	addCountry()
+o	removeCountry()
+o	searchCountry()
+o	displayAllCountries()
+•	Use proper encapsulation in the Country class (private attributes with getters/setters).
+•	Use a menu-driven approach for testing these operations (optional but recommended).
+Hints
+•	TreeMap automatically sorts keys in ascending order.
+•	Use put() to add a key-value pair.
+•	Use remove(key) to delete an entry.
+•	Use containsKey(key) or get(key) for searching.
+•	Override toString() in the Country class for easy display.
+
+
+
+

@@ -1,0 +1,11 @@
+Problem Statement
+1.	Create an interface named Greeting with a single method sayHello().
+2.	Create another class, e.g., GreetingDemo, containing a method generateGreeting().
+3.	Inside generateGreeting(), implement the Greeting interface using an anonymous inner class.
+4.	Print a greeting message (e.g., “Hello! Welcome to Java Programming.”).
+5.	In the main() method, call generateGreeting() to execute the anonymous class behavior.
+Requirements
+•	Use an interface with one method (sayHello()).
+•	Implement that interface using an anonymous inner class.
+•	Call the implemented method within generateGreeting().
+•	No separate class should explicitly implement the interface.

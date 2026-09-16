@@ -1,0 +1,15 @@
+Problem Statement
+1.	Create a base class Member with:
+o	Data members:
+name, age, phoneNumber, address, salary
+o	Method:
+printSalary() → prints the member’s salary.
+2.	Create two subclasses:
+o	Employee → adds specialization
+o	Manager → adds department
+3.	Create objects of both Employee and Manager, assign values, and print all details including salary.
+Requirements
+•	Demonstrate inheritance in Java.
+•	Access and print both base class and derived class members.
+•	Implement method overriding or extension where appropriate.
+•	Use encapsulation principles (private variables and public setters/getters are optional for simplicity).

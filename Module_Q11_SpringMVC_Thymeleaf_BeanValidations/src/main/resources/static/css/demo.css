@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.funny{
+	font-style:italic;
+	color:green;
+	font-size:large;
+}
+
+
+
+ body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .welcome-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .welcome-card h1 {
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        .username {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .emoji {
+            font-size: 60px;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            margin-top: 10px;
+        }
