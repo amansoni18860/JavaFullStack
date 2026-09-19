@@ -11,7 +11,6 @@ The code in this repository has been written and collected from multiple learnin
 - YouTube learning resources
 - Udemy courses
 - Coding challenges and assignments
-- Spring Boot and REST API projects
 - Object-Oriented Programming exercises
 
 The primary goal of this repository is to strengthen Java development skills through continuous learning and implementation.
