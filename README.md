@@ -44,38 +44,14 @@ The primary goal of this repository is to strengthen Java development skills thr
 - Encapsulation
 
 ### Advanced Java
-- JDBC
 - Multithreading
 - Packages
 - Collections
 - Date & Time API
 
-### Spring Ecosystem
-- Spring Boot
-- Spring MVC
-- Spring Data JPA
-- Spring Data REST
-- RESTful APIs
-- Thymeleaf
-- Form Binding
-- Microservices
-
-### Database
-- MySQL
-- H2 Database
-
 ---
 
-## Repository Structure
 
-```text
-├── Module_a_Basics
-├── Module_b_Arrays
-├── Module_c_Strings
-└── Other Java Learning Modules
-```
-
----
 
 ## Purpose
 
@@ -93,10 +69,6 @@ This repository serves as:
 
 The code available in this repository is intended for educational and learning purposes. Some implementations may be inspired by examples from online courses, tutorials, YouTube content, technical documentation, and personal experimentation. Appropriate credit belongs to the respective authors and content creators.
 
----
-
-
-Java | Spring Boot | REST APIs | Backend Development
 
 ---
 
