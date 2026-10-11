@@ -1,0 +1,22 @@
+package com.example.Thymeleaf.demo.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.Thymeleaf.demo.entity.Student;
+
+@Controller
+public class StudentController {
+
+    @GetMapping("/students")
+    public String showStudents(Model model) {
+     
+    	model.addAttribute("Student", new Student());
+
+        return "students";
+    }
+    
+}

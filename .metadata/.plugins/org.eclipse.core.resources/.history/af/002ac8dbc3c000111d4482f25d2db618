@@ -1,0 +1,28 @@
+spring.application.name=Lect_x_SpringBoot_EmployeeManagementCRUD
+
+spring.main.banner-mode=off
+
+#Actuator - AppInfo
+
+management.endpoints.web.exposure.include=*
+management.info.env.enabled=true
+
+info.app.name=Employee Management Project
+info.app.version=1.0
+info.app.description=Spring Boot Employee Management System
+info.app.environment=Development
+
+info.server.name=Tomcat
+info.server.port=8080
+
+
+#H2 database configuration
+spring.datasource.url=jdbc:h2:mem:employee_management_db
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.jpa.hibernate.ddl-auto=update
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console

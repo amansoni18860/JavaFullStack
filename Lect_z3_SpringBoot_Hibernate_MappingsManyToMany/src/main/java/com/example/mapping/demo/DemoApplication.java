@@ -1,0 +1,41 @@
+package com.example.mapping.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.mapping.demo.entity.Course;
+import com.example.mapping.demo.entity.Instructor;
+
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner(InstructorRepository instructorRepository) {
+
+        return args -> {
+
+            Instructor instructor = new Instructor("John", "Doe");
+
+            Course javaCourse = new Course("Java Programming");
+            Course springCourse = new Course("Spring Boot");
+            Course hibernateCourse = new Course("Hibernate and JPA");
+
+            instructor.addCourse(javaCourse);
+            instructor.addCourse(springCourse);
+            instructor.addCourse(hibernateCourse);
+
+            // Saves instructor, courses, and instructor_course join-table entries
+            // because CascadeType.ALL is configured.
+            instructorRepository.save(instructor);
+
+            System.out.println("Instructor saved: " + instructor);
+            System.out.println("Courses saved: " + instructor.getCourses());
+        };
+    }
+}

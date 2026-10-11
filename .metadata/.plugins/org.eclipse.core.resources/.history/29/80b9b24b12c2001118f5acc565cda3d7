@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employees | PeopleFlow</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                PeopleFlow
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/employees}">
+                            Employees
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/employees/add}">
+                            Add Employee
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit" class="btn btn-light btn-sm">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="container py-5">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+            <div>
+                <h1 class="fw-bold text-dark mb-1">Employees</h1>
+                <p class="text-muted mb-0">
+                    Manage and view all registered employees.
+                </p>
+            </div>
+
+            <a th:href="@{/employees/add}" class="btn btn-primary mt-3 mt-md-0">
+                <span class="me-1">+</span> Add Employee
+            </a>
+        </div>
+
+        <!-- Success message -->
+        <div
+            th:if="${successMessage}"
+            class="alert alert-success alert-dismissible fade show"
+            role="alert">
+            <span th:text="${successMessage}"></span>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+            </button>
+        </div>
+
+        <!-- Employee table -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+
+                        <thead class="table-primary">
+                            <tr>
+                                <th>#</th>
+                                <th>Registration ID</th>
+                                <th>Employee Name</th>
+                                <th>Gender</th>
+                                <th>Department</th>
+                                <th>Skills</th>
+                                <th>Joining Date</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Display employees -->
+                            <tr th:each="employee, employeeStatus : ${employees}">
+                                <td th:text="${employeeStatus.count}">1</td>
+
+                                <td>
+                                    <span
+                                        class="badge bg-secondary"
+                                        th:text="${employee.regId}">
+                                        EMP001
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <strong th:text="${employee.name}">
+                                        John Doe
+                                    </strong>
+                                </td>
+
+                                <td th:text="${employee.gender}">
+                                    Male
+                                </td>
+
+                                <td th:text="${employee.department}">
+                                    IT
+                                </td>
+
+                                <td>
+                                    <span
+                                        th:if="${employee.skills != null}"
+                                        th:each="skill : ${employee.skills}"
+                                        class="badge bg-info text-dark me-1"
+                                        th:text="${skill}">
+                                        Java
+                                    </span>
+                                </td>
+
+                                <td
+                                    th:text="${employee.joiningDate != null ? #dates.format(employee.joiningDate, 'dd-MM-yyyy') : 'N/A'}">
+                                    01-01-2026
+                                </td>
+
+                                <td class="text-center">
+                                    <a
+                                        th:href="@{/employees/edit/{id}(id=${employee.empId})}"
+                                        class="btn btn-sm btn-outline-primary me-1">
+                                        Edit
+                                    </a>
+
+                                    <a
+                                        th:href="@{/employees/delete/{id}(id=${employee.empId})}"
+                                        class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('Are you sure you want to delete this employee?');">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <!-- Empty state -->
+                            <tr th:if="${employees == null or #lists.isEmpty(employees)}">
+                                <td colspan="8" class="text-center py-5">
+                                    <div class="text-muted">
+                                        <h5>No employees found</h5>
+                                        <p class="mb-3">
+                                            Start by adding your first employee.
+                                        </p>
+
+                                        <a
+                                            th:href="@{/employees/showFormForAdd}"
+                                            class="btn btn-primary">
+                                            Add Employee
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-light border-top py-4 mt-5">
+        <div class="container text-center text-muted">
+            © 2026 PeopleFlow. Employee management made simple.
+        </div>
+    </footer>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>

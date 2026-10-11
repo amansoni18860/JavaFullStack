@@ -1,0 +1,5 @@
+package com.example.Thymeleaf.demo.validations;
+
+public class StudentCodeConstraintValidator {
+
+}

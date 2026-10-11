@@ -1,0 +1,53 @@
+package com.example.ems.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.ems.demo.entity.Employee;
+import com.example.ems.demo.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImp implements EmployeeService {
+
+	@Autowired
+	private EmployeeRepository employeeRepo;
+
+	public EmployeeServiceImp(EmployeeRepository therepo) {
+		this.employeeRepo = therepo;
+	}
+
+
+
+	@Override
+	public List<Employee> findAll() {
+		return employeeRepo.findAll();
+	}
+
+
+
+	@Override
+	public Optional<Employee> findById(int id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+
+
+	@Override
+	public Employee save(Employee emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

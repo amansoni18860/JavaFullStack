@@ -1,0 +1,19 @@
+package com.example.mapping.demo.dao;
+
+import com.example.mapping.demo.entity.Course;
+import com.example.mapping.demo.entity.Instructor;
+
+public interface AppDAO {
+
+    void save(Instructor instructor);
+
+    Instructor findInstructorById(int id);
+
+    Instructor findInstructorByIdJoinFetch(int id);
+
+    Course findCourseById(int id);
+
+    void deleteInstructorById(int id);
+
+    void deleteCourseById(int id);
+}

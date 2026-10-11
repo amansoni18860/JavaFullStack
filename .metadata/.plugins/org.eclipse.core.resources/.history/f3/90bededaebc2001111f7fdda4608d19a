@@ -1,0 +1,18 @@
+-- USERS
+INSERT INTO users (username, password, enabled)
+VALUES
+('john', '{noop}test123', true),
+('mary', '{noop}test123', true),
+('susan', '{noop}test123', true);
+
+-- AUTHORITIES
+INSERT INTO authorities (username, authority)
+VALUES
+('john', 'ROLE_EMPLOYEE'),
+
+('mary', 'ROLE_EMPLOYEE'),
+('mary', 'ROLE_MANAGER'),
+
+('susan', 'ROLE_EMPLOYEE'),
+('susan', 'ROLE_MANAGER'),
+('susan', 'ROLE_ADMIN');

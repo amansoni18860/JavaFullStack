@@ -1,0 +1,72 @@
+package com.example.Thymeleaf.demo.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.Thymeleaf.demo.entity.Student;
+
+import jakarta.validation.Valid;
+
+@Controller
+public class DemoController {
+	
+	
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		
+		StringTrimmerEditor stringTrimmerEditor=new StringTrimmerEditor(true); 
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+	}
+
+	@Value("${countries}")
+	private String countries;
+
+	@Value("${genders}")
+	private String genders;
+
+	@Value("${hobbies}")
+	private String hobbies;
+
+	@GetMapping("/")
+	public String showForm(Model model) {
+
+		model.addAttribute("student", new Student());
+
+		model.addAttribute("countryList", Arrays.asList(countries.split(",")));
+
+		model.addAttribute("genderList", Arrays.asList(genders.split(",")));
+
+		model.addAttribute("hobbyList", Arrays.asList(hobbies.split(",")));
+
+		return "form";
+	}
+
+	@PostMapping("/processForm")
+	public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult theBindingResult,
+			Model model) {
+		
+		System.out.println("The Binding Results : "+theBindingResult.toString());
+
+		if (theBindingResult.hasErrors()) {
+			return "form";
+		} else {
+			String message = "Welcome " + student.getFirstName() + " " + student.getLastName();
+
+			model.addAttribute("message", message);
+
+			return "ProcessForm";
+		}
+
+	}
+}

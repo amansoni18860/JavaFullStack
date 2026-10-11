@@ -1,0 +1,14 @@
+spring.application.name=Lect_x_SpringBoot_EmployeeManagementCRUD
+
+#Actuator - AppInfo
+
+management.endpoints.web.exposure.include=*
+management.info.env.enabled=true
+
+info.app.name=Employee Management Project
+info.app.version=1.0
+info.app.description=Spring Boot Employee Management System
+info.app.environment=Development
+
+info.server.name=Tomcat
+info.server.port=8080

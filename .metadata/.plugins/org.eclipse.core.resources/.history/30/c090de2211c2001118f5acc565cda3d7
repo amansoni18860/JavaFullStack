@@ -1,0 +1,24 @@
+INSERT INTO employees
+(unique_id, employee_name, gender, skills, employee_dept, date)
+VALUES
+('EMP001', 'Chetan', 'Male', 'Java,Spring Boot,MySQL', 'IT', '2024-01-15');
+
+INSERT INTO employees
+(unique_id, employee_name, gender, skills, employee_dept, date)
+VALUES
+('EMP002', 'Deepika', 'Female', 'React,JavaScript,HTML', 'HR', '2024-02-20');
+
+INSERT INTO employees
+(unique_id, employee_name, gender, skills, employee_dept, date)
+VALUES
+('EMP003', 'Karan', 'Male', 'Python,Django,PostgreSQL', 'Finance', '2024-03-10');
+
+INSERT INTO employees
+(unique_id, employee_name, gender, skills, employee_dept, date)
+VALUES
+('EMP004', 'Riya', 'Female', 'Selenium,JUnit,Testing', 'QA', '2024-04-05');
+
+INSERT INTO employees
+(unique_id, employee_name, gender, skills, employee_dept, date)
+VALUES
+('EMP005', 'Yash', 'Male', 'AWS,Docker,Kubernetes', 'DevOps', '2024-05-25');

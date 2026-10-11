@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.example.rest.demo.exception&apos; to &apos;Lect_p_SpringBoot_REST_SERVICE&apos;&#x0D;&#x0A;- Original project: &apos;Lect_n_SpringBoot_RESTGlobalException&apos;&#x0D;&#x0A;- Destination element: &apos;Lect_p_SpringBoot_REST_SERVICE&apos;&#x0D;&#x0A;- Original element: &apos;Lect_n_SpringBoot_RESTGlobalException/src/main/java/com.example.rest.demo.exception&apos;" description="Copy package" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.rest.demo.exception" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1790658001667" target="/Lect_p_SpringBoot_REST_SERVICE" version="1.0"/>
+</session>

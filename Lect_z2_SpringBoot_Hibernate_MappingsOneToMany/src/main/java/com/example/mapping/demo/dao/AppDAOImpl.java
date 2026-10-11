@@ -1,0 +1,70 @@
+package com.example.mapping.demo.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.mapping.demo.entity.Course;
+import com.example.mapping.demo.entity.Instructor;
+
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class AppDAOImpl implements AppDAO {
+
+    private EntityManager entityManager;
+
+    public AppDAOImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    @Transactional
+    public void save(Instructor instructor) {
+
+        entityManager.persist(instructor);
+    }
+
+    @Override
+    public Instructor findInstructorById(int id) {
+
+        return entityManager.find(Instructor.class, id);
+    }
+
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int id) {
+
+        return entityManager.createQuery(
+                "select i from Instructor i " +
+                "join fetch i.courses " +
+                "where i.id=:data",
+                Instructor.class)
+                .setParameter("data", id)
+                .getSingleResult();
+    }
+
+    @Override
+    public Course findCourseById(int id) {
+
+        return entityManager.find(Course.class, id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteInstructorById(int id) {
+
+        Instructor instructor =
+                entityManager.find(Instructor.class, id);
+
+        entityManager.remove(instructor);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCourseById(int id) {
+
+        Course course =
+                entityManager.find(Course.class, id);
+
+        entityManager.remove(course);
+    }
+}

@@ -1,0 +1,116 @@
+package com.example.mapping.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.mapping.demo.dao.AppDAO;
+import com.example.mapping.demo.entity.Instructor;
+import com.example.mapping.demo.entity.IntructorDetails;
+
+@SpringBootApplication
+public class LectZSpringBootHibernateMappingsApplication2 {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LectZSpringBootHibernateMappingsApplication2.class, args);
+    }
+
+    @Bean
+    public CommandLineRunner commandLineRunner(AppDAO appDAO) {
+
+    	return runner -> {
+
+    	    createInstructor(appDAO);
+
+    	    findInstructor(appDAO);
+    	    // deleteInstructor(appDAO);
+
+    	    findInstructorDetails(appDAO);
+
+    	    deleteInstructorDetails(appDAO);    	};
+    }
+
+    
+    private void deleteInstructorDetails(AppDAO appDAO) {
+
+    	int theId=2;
+    	System.out.println("Deleting Instructor Details id: "+theId);
+    	appDAO.deleteInstructorDetailsById(theId);
+	}
+
+	private void findInstructorDetails(AppDAO appDAO) {
+
+    	int theId=2;
+    	IntructorDetails  tempInstructorDetails=appDAO.findInstructorDetailsById(theId);
+    	System.out.println("\n\ntempInstructorDetails: "+tempInstructorDetails);
+    	System.out.println("\n\nthe associated instructor: "+tempInstructorDetails.getInstructor());
+    	System.out.print("\n\nDone!");
+	}
+
+	private void deleteInstructor(AppDAO appDAO) {
+    
+    	int theId=2;
+    	
+    	System.out.println("\n\nDeleting instructor id : "+theId);
+    	
+    	appDAO.deleteInstructorById(theId);
+    	
+    	System.out.println("\n\nDone...!");
+    	
+	}
+
+	private void findInstructor(AppDAO appDAO) {
+
+        int theId = 1;
+
+        System.out.println("Finding instructor id : " + theId);
+
+        Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+        System.out.println("\n\ntempInstructor : " + tempInstructor);
+        System.out.println("\n\nThe associated InstructorDetail only : "
+                + tempInstructor.getInstructorDetail());
+    }
+
+	private void createInstructor(AppDAO appDAO) {
+
+	    Instructor instructor1 =
+	            new Instructor("Raj", "Singh", "raj@gmail.com");
+
+	    IntructorDetails details1 =
+	            new IntructorDetails(
+	                    "http://www.google.com",
+	                    "Google Website");
+
+	    instructor1.setInstructorDetail(details1);
+
+	    Instructor instructor2 =
+	            new Instructor("John", "Doe", "john@gmail.com");
+
+	    IntructorDetails details2 =
+	            new IntructorDetails(
+	                    "http://www.youtube.com",
+	                    "YouTube Channel");
+
+	    instructor2.setInstructorDetail(details2);
+
+	    Instructor instructor3 =
+	            new Instructor("Mary", "Smith", "mary@gmail.com");
+
+	    IntructorDetails details3 =
+	            new IntructorDetails(
+	                    "http://www.linkedin.com",
+	                    "LinkedIn Profile");
+
+	    instructor3.setInstructorDetail(details3);
+
+	    System.out.println("Saving instructors...");
+
+	    appDAO.save(instructor1);
+	    appDAO.save(instructor2);
+	    appDAO.save(instructor3);
+
+	    System.out.println("Done!");
+	}
+}

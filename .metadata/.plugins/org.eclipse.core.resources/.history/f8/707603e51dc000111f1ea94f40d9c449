@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Submitted Data</title>
+</head>
+
+<body>
+
+<h2>Submitted Student Details</h2>
+
+<p>
+    Name:
+    <span th:text="${student.firstName}"></span>
+    <span th:text="${student.lastName}"></span>
+</p>
+
+<p>
+    Age:
+    <span th:text="${student.age}"></span>
+</p>
+
+<p>
+    Gender:
+    <span th:text="${student.gender}"></span>
+</p>
+
+<p>
+    Country:
+    <span th:text="${student.country}"></span>
+</p>
+
+<p>
+    Hobbies:
+    <span th:text="${student.hobbies}"></span>
+</p>
+
+<p>
+    Comments:
+    <span th:text="${student.comments}"></span>
+</p>
+
+<p th:text="${message}"></p>
+
+</body>
+</html>

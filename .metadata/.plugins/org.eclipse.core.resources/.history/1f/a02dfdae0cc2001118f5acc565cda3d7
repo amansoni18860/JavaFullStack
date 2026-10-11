@@ -1,0 +1,99 @@
+package com.example.ems.demo.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ems.demo.entity.Employee;
+import com.example.ems.demo.exceptions.EmployeeNotFoundException;
+import com.example.ems.demo.service.EmployeeService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@RestController
+@RequestMapping("/api")
+public class EmployeeApiController {
+
+	private EmployeeService empService;
+	private ObjectMapper objectMapper;
+
+	@Autowired
+	public EmployeeApiController(EmployeeService empService, ObjectMapper objectMapper) {
+		this.empService = empService;
+		this.objectMapper = objectMapper;
+	}
+	
+
+	@GetMapping("/employees")
+	public List<Employee> getEmployees() {
+		return empService.findAll();
+	}
+
+	
+	@GetMapping("/employees/{employeeId}")
+	public Employee getEmployee(@PathVariable int employeeId) {
+
+		return empService.findById(employeeId)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee id not found : " + employeeId));
+	}
+	
+
+	@PostMapping("/employees")
+	public Employee addEmployee(@RequestBody Employee employee) {
+
+		employee.setEmpId(0);
+
+		return empService.save(employee);
+	}
+
+	
+	@PutMapping("/employees/{employeeId}")
+	public Employee updateEmployee(@PathVariable int employeeId, @RequestBody Employee employee) {
+
+		employee.setEmpId(employeeId);
+
+		return empService.save(employee);
+	}
+
+	
+	@PatchMapping("/employees/{employeeId}")
+	public Employee patchEmployee(@PathVariable int employeeId, @RequestBody Map<String, Object> payload) {
+
+		Employee tempEmployee = empService.findById(employeeId)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee id not found : " + employeeId));
+
+		if (payload.containsKey("empId")) {
+			throw new RuntimeException("Employee id is not allowed in request body");
+		}
+
+		try {
+
+			Employee patchedEmployee = objectMapper.updateValue(tempEmployee, payload);
+			return empService.save(patchedEmployee);
+
+		} catch (Exception e) {
+
+			throw new RuntimeException("Error while patching employee", e);
+		}
+	}
+
+	@DeleteMapping("/employees/{employeeId}")
+	public String deleteEmployee(@PathVariable int employeeId) {
+
+		empService.findById(employeeId)
+				.orElseThrow(() -> new EmployeeNotFoundException("Employee id not found : " + employeeId));
+
+		empService.deleteById(employeeId);
+
+		return "Deleted employee id - " + employeeId;
+	}
+}

@@ -1,0 +1,58 @@
+package com.example.Thymeleaf.demo.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.Thymeleaf.demo.entity.Student;
+
+@Controller
+public class DemoController {
+
+	@Value("${countries}")
+	private String countries;
+	
+	@Value("${genders}")
+	private String genders;
+	
+	@Value("${hobbies}")
+	private String hobbies;
+	
+	@GetMapping("/showForm")
+	public String showForm(Model model) {
+	
+	model.addAttribute("student", new Student());
+	
+	model.addAttribute("countryList",
+	Arrays.asList(countries.split(",")));
+
+	model.addAttribute("genderList",
+	Arrays.asList(genders.split(",")));
+	
+	model.addAttribute("hobbyList",
+	Arrays.asList(hobbies.split(",")));
+	
+	return "form";
+	}
+    @PostMapping("/processForm")
+    public String processForm(
+            @ModelAttribute("student") Student student,
+            Model model) {
+
+        String message =
+                "Welcome "
+                + student.getFirstName()
+                + " "
+                + student.getLastName();
+
+        model.addAttribute("message", message);
+
+        return "ProcessForm";
+    }
+}

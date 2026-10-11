@@ -1,0 +1,13 @@
+package com.example.mapping.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LectZSpringBootHibernateMappingsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LectZSpringBootHibernateMappingsApplication.class, args);
+	}
+
+}

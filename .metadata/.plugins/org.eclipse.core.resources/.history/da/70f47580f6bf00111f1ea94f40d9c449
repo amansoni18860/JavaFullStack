@@ -1,0 +1,51 @@
+package com.example.Thymeleaf.demo.controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+
+@Controller
+public class DemoController {
+
+	@GetMapping("/showForm")
+	public String showForm() {
+	return "form";
+	}
+	
+	@RequestMapping("/processForm")
+	public String processForm() {
+	return "ProcessForm";
+	}
+	
+	
+	@RequestMapping("/processFormV2")
+	public String makeAllCap(HttpServletRequest request, Model model) {
+		
+		String name=request.getParameter("studentName");
+		
+		name=name.toUpperCase();
+		
+		model.addAttribute("message", name);
+		
+		return "ProcessForm";
+	}
+	
+	
+	
+	@RequestMapping("/processFormV2")
+	public String makeAllCap(@RequestParam("studentName") String name, Model model) {
+		
+		
+		name=name.toUpperCase();
+		
+		model.addAttribute("message", name);
+		
+		return "ProcessForm";
+	}
+}

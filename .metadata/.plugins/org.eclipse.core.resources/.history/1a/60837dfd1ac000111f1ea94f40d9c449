@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Process Form</title>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <div th:object="${student}">
+
+        First Name:
+        <span th:text="*{firstName}"></span>
+        <br><br>
+
+        Last Name:
+        <span th:text="*{lastName}"></span>
+        <br><br>
+
+        Age:
+        <span th:text="*{age}"></span>
+
+    </div>
+
+    <br><br>
+
+    <p th:text="${message}"></p>
+
+</body>
+</html>

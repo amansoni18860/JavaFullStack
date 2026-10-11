@@ -1,0 +1,112 @@
+SPRING BOOT ACTUATOR ENDPOINTS
+=============================
+
+Base Endpoint
+-------------
+GET  /actuator
+-> Lists all exposed actuator endpoints.
+
+Health & Monitoring
+-------------------
+GET  /actuator/health
+-> Application health status (UP/DOWN).
+
+GET  /actuator/health/liveness
+-> Checks if application is alive.
+
+GET  /actuator/health/readiness
+-> Checks if application is ready to serve requests.
+
+Application Info
+----------------
+GET  /actuator/info
+-> Custom application information.
+
+Metrics
+-------
+GET  /actuator/metrics
+-> List all available metrics.
+
+GET  /actuator/metrics/jvm.memory.used
+-> JVM memory usage.
+
+GET  /actuator/metrics/system.cpu.usage
+-> CPU usage.
+
+GET  /actuator/metrics/http.server.requests
+-> HTTP request statistics.
+
+Spring Context
+--------------
+GET  /actuator/beans
+-> All Spring beans.
+
+GET  /actuator/configprops
+-> Configuration properties.
+
+GET  /actuator/env
+-> Environment properties.
+
+GET  /actuator/env/server.port
+-> Specific property value.
+
+Request Mapping
+---------------
+GET  /actuator/mappings
+-> Lists all API mappings.
+
+Logging
+-------
+GET  /actuator/loggers
+-> Available loggers.
+
+GET  /actuator/loggers/{logger-name}
+-> Details of specific logger.
+
+Thread & Memory
+---------------
+GET  /actuator/threaddump
+-> JVM thread dump.
+
+GET  /actuator/heapdump
+-> JVM heap dump.
+
+Tasks & Cache
+-------------
+GET  /actuator/scheduledtasks
+-> Scheduled jobs.
+
+GET  /actuator/caches
+-> Cache information.
+
+HTTP Requests
+-------------
+GET  /actuator/httpexchanges
+-> Recent HTTP requests.
+
+Startup Details
+---------------
+GET  /actuator/startup
+-> Application startup steps.
+
+Prometheus
+----------
+GET  /actuator/prometheus
+-> Metrics for Prometheus monitoring.
+
+Shutdown
+--------
+POST /actuator/shutdown
+-> Gracefully stops application.
+   (Disabled by default)
+
+Common Production Endpoints
+---------------------------
+/actuator
+/actuator/health
+/actuator/info
+/actuator/metrics
+/actuator/prometheus
+/actuator/loggers
+/actuator/mappings
+/actuator/env

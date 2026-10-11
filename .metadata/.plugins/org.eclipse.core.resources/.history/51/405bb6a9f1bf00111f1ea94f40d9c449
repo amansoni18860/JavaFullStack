@@ -1,0 +1,21 @@
+package com.example.Thymeleaf.demo.controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Controller
+public class DemoController {
+
+	@RequestMapping("/showForm")
+	public String showForm() {
+	return "form";
+	}
+	 
+	@RequestMapping("/processForm")
+	public String processForm() {
+	return "result";
+	}
+	
+}

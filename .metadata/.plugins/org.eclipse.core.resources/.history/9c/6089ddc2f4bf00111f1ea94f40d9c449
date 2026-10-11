@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Process Form</title>
+    <link rel="stylesheet" th:href="@{/css/Style.css}"/>
+</head>
+
+<body>
+Student Name : <span th:text="${param.studentName}"></span>
+Student Name : <span th:text="${message}"></span>
+</body>
+</html>

@@ -1,0 +1,127 @@
+package com.example.ems.demo.entity;
+
+import java.util.Date;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity(name="employees")
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "employee_id")
+    private int empId;
+	
+	@Column(name="unique_id")
+	private String RegId;
+
+	@Column(name="employee_name")
+	private String name;
+
+	@Column(name="gender")
+    private String gender;
+
+	@Column(name="skills")
+    private List<String> skills;
+
+	@Column(name="employee_dept")
+    private String department;
+
+	@Column(name="date")
+    private Date joiningDate;
+
+    public Employee() {
+    }
+
+    public Employee(int empId, String name, String gender,
+                    List<String> skills, String department,
+                    Date joiningDate) {
+        this.empId = empId;
+        this.name = name;
+        this.gender = gender;
+        this.skills = skills;
+        this.department = department;
+        this.joiningDate = joiningDate;
+    }
+
+    public Employee(int empId, String regId, String name, String gender, List<String> skills, String department,
+			Date joiningDate) {
+		this.empId = empId;
+		RegId = regId;
+		this.name = name;
+		this.gender = gender;
+		this.skills = skills;
+		this.department = department;
+		this.joiningDate = joiningDate;
+	}
+    
+    
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Date getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+    
+    
+	public String getRegId() {
+		return RegId;
+	}
+
+	public void setRegId(String regId) {
+		RegId = regId;
+	}
+
+    @Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", RegId=" + RegId + ", name=" + name + ", gender=" + gender + ", skills="
+				+ skills + ", department=" + department + ", joiningDate=" + joiningDate + "]";
+	}
+}

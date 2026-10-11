@@ -1,0 +1,8 @@
+package com.example.mapping.demo.dao;
+
+import com.example.mapping.demo.entity.Instructor;
+
+public interface AppDAO {
+
+	void save(Instructor theInstructor);
+}

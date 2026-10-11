@@ -1,0 +1,20 @@
+package com.example.ems.demo.exceptions;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+public class EmployeeErrorResponse {
+
+	private String message;
+	private int status;
+	private Timestamp tStamp = new Timestamp(System.currentTimeMillis());
+	
+	public EmployeeErrorResponse() {
+		
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="UTF-8">
+<title>Leader Page</title>
+</head>
+<body>
+	<h2>Company Leader Page</h2>
+	<hr>
+	
+	<p>Hey! Leaders Nice to Meat you!</p>
+	<br/>
+	I hope Everything goes well in correct direction.
+<hr>
+
+<a th:href="@{/}">Back to Home Page</a>
+</body>
+</html>

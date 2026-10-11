@@ -1,0 +1,31 @@
+package com.example.Thymeleaf.demo.controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+
+@Controller
+public class DemoController {
+
+	@GetMapping("/showForm")
+	public String showForm() {
+	return "form";
+	}
+	
+	@RequestMapping("/processForm")
+	public String processForm() {
+	return "ProcessForm";
+	}
+	
+	
+
+	public String makeAllCap(HttpServletRequest request, Model model) {
+		
+		return "ProcessForm";
+	}
+}

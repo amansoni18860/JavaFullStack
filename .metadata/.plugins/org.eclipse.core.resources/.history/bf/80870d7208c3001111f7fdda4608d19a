@@ -1,0 +1,37 @@
+package com.example.mapping.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.mapping.demo.dao.AppDAO;
+import com.example.mapping.demo.entity.Instructor;
+import com.example.mapping.demo.entity.IntructorDetails;
+
+@SpringBootApplication
+public class LectZSpringBootHibernateMappingsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LectZSpringBootHibernateMappingsApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
+
+		return runner -> {
+			createInstructor(appDAO);
+		};
+	}
+
+	
+	private void createInstructor(AppDAO appDAO) {
+
+		Instructor tempInstructor = new Instructor("Raj", "Singh", "Db@gmail.com");
+
+		IntructorDetails tempInstructorDetails = new IntructorDetails("http://www.google.com", "Google Website");
+
+		tempInstructor.setInstructorDetail(tempInstructorDetails);
+
+	}
+}

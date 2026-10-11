@@ -1,0 +1,12 @@
+package com.example.mapping.demo.dao;
+
+import com.example.mapping.demo.entity.Instructor;
+
+public interface AppDAO {
+
+	void save(Instructor theInstructor);
+	
+	public Instructor findInstructorById(int theId);
+	
+	public void deleteInstructorById(int theId);
+}

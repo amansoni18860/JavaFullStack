@@ -1,0 +1,39 @@
+package com.example.Thymeleaf.demo.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.Thymeleaf.demo.entity.Student;
+
+@Controller
+public class StudentController {
+
+	@GetMapping("/showForm")
+	public String showStudents(Model model) {
+
+		model.addAttribute("Student", new Student());
+
+		return "students";
+	}
+
+	@PostMapping("/processForm")
+	public String processForm(@RequestParam("Student") Student s, Model model) {
+		
+		String firstName=s.getFirstName();
+		String lastName=s.getLastName();
+		int age=s.getAge();
+		
+		String message = String.format(
+		        "Welcome %s %s. Your age is %d.",
+		        firstName, lastName, age);
+		
+
+		return "ProcessForm";
+	}
+
+}
